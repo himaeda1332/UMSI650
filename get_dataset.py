@@ -283,4 +283,5 @@ pickcol = ['brand', 'name', 'brand_id', 'product_id',
            'description', 'user_id']
 
 df_sample = df_sample[pickcol]
+df_sample.description = 'sample'
 df_sample.to_csv('sephora_review_skincare_sample.csv', index=False)        

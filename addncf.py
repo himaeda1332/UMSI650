@@ -331,6 +331,12 @@ def cosine(t_max, eta_min=0):
     
     return scheduler
 
+addnet = AddFeaturesEmbeddingNet(
+    n_user, n_product, n_price, 
+    n_skintype, n_skintone, n_concern, n_brand, 
+    n_factors=200, n_factors_fix = 100, hidden=[500, 500, 400, 400, 300], 
+    embedding_dropout=0.05, dropouts=[0.5, 0.5, 0.25, 0.25])
+
 # Data spilit into training data and validation dataset
 X_train, X_valid, y_train, y_valid = train_test_split(X, y, test_size=0.2, random_state=RANDOM_STATE)
 datasets = {'train': (X_train, y_train), 'val': (X_valid, y_valid)}
